@@ -20,9 +20,8 @@ read TOKEN MASTERNODE <<<$(IFS=","; echo $1)
  mkdir -p /etc/chef
 echo -e "{\n\"gridengine\": {\n\"master\": \"$MASTERNODE\",\n\"token_key\": \"$TOKEN\"},\n\"run_list\": [\n\"recipe[gridengine::client]\" ]\n}\n" >/etc/chef/node.json
 
-echo -e "log_level       :info\nlog_location    STDOUT\nfile_cache_path \"/var/chef-solo\"\ncookbook_path   [\"/var/chef-repo/site-cookbooks\", \"/var/chef-repo/cookbooks\"]\nrole_path       \"/var/chef-repo/roles\"\njson_attribs    \"/etc/chef/node.json\"\n" >/tmp/solo.rb
+echo -e "log_level       :info\nlog_location    STDOUT\nfile_cache_path \"/var/chef-solo\"\ncookbook_path   [\"/var/chef-repo/site-cookbooks\", \"/var/chef-repo/cookbooks\"]\nrole_path       \"/var/chef-repo/roles\"\njson_attribs    \"/etc/chef/node.json\"\n" >/etc/chef/solo.rb
 
- mv /tmp/solo.rb /etc/chef
  apt-get -y install build-essential
  apt-get -y install python-setuptools
  apt-get -y install git
