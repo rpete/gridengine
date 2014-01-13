@@ -23,5 +23,7 @@ $bin/setup.pl config.txt 100
 $bin/setup.pl config.txt 201
 
 
+# To delete ALL GridEngine nodes and disks associated
+$bin/setup.pl config.txt 101
 
 **NOTE: The master node is the first node
